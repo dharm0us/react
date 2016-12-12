@@ -86,6 +86,18 @@ class App4 extends React.Component {
 			}
 	}
 
+	addUser(e) {
+		var user = {
+			name: 'Tom',
+			age: 22,
+			bio: "bio default new user",
+			hobbies: ['basketball','baseball']
+		}
+		this.setState({
+			profiles: this.state.profiles.concat([user])
+		})
+	}
+
 	render() {
 		let profiles = this.state.profiles.map(profile => {
 			return (
@@ -100,6 +112,7 @@ class App4 extends React.Component {
 		return(
 				<div>
 				{profiles}
+				<button onClick={this.addUser.bind(this)}> Add new profile</button>
 				</div>
 		      )
 	}
