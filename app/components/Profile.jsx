@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class Profile extends React.Component {
+/*export default class Profile extends React.Component {
 	render() {
 		let hobbies = this.props.hobbies.map(hobby => {
 				return <li>{hobby}</li>
@@ -15,5 +15,16 @@ export default class Profile extends React.Component {
 				</div>
 		       )
 	}
-}
+}*/
 
+let Profile = props => (
+
+				<div>
+				<p> {props.name} is {props.age} old and bio = {props.bio}</p>
+				<h3>Hobbies</h3>
+				<ul>
+				{props.hobbies.map(hobby => <li>{hobby}</li>)}
+				</ul>
+				</div>
+		)
+export default Profile
