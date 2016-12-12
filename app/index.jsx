@@ -4,10 +4,18 @@ import ReactDOM from 'react-dom'
 {/*import App from './components/App'
    */}
 
+var Y = React.createClass({
+	render: function(){
+		return(
+			<p>Y</p>
+		      )
+	}
+})
+
 var X = React.createClass({
 	render: function(){
 		return(
-			<p>X</p>
+			React.createElement("p","","X")
 		      )
 	}
 })
@@ -24,5 +32,81 @@ var App = React.createClass({
 	}
 })
 
+{
+	/*
+	 * ES6
+	 */
+}
+class App3 extends React.Component {
+	constructor(props) {
+		super(props)
+			this.state = {
+				profiles: [
+				{name: 'Sunny', age: 30, hobbies: ['swimming','cricket'], bio:"bio1"},
+				{name: 'Dharam', age: 29, hobbies: ['gardening','football'], bio:"bio2"},
+					]
+			}
+	}
+
+	render() {
+		return(
+				<div>
+				<p> {this.state.profiles[0].name} </p>
+				<p>ES6</p>
+				</div>
+		      )
+	}
+}
+
+class Profile extends React.Component {
+	render() {
+		let hobbies = this.props.hobbies.map(hobby => {
+				return <li>{hobby}</li>
+		})
+		return (
+				<div>
+				<p> {this.props.name} is {this.props.age} old and bio = {this.props.bio}</p>
+				<h3>Hobbies</h3>
+				<ul>
+				{hobbies}
+				</ul>
+				</div>
+		       )
+	}
+}
+
+class App4 extends React.Component {
+	constructor(props) {
+		super(props)
+			this.state = {
+				profiles: [
+				{name: 'Sunny', age: 30, hobbies: ['swimming','cricket'], bio:"bio1"},
+				{name: 'Dharam', age: 29, hobbies: ['gardening','football'], bio:"bio2"},
+					]
+			}
+	}
+
+	render() {
+		let profiles = this.state.profiles.map(profile => {
+			return (
+				<Profile
+				  name={profile.name}
+				  age={profile.age}
+				  bio={profile.bio}
+				  hobbies={profile.hobbies} />
+			       )
+		})
+
+		return(
+				<div>
+				{profiles}
+				</div>
+		      )
+	}
+}
+
+
 ReactDOM.render(<App />, document.getElementById('app'));
 ReactDOM.render(<X />, document.getElementById('app2'));
+ReactDOM.render(<App3 />, document.getElementById('app3'));
+ReactDOM.render(<App4 />, document.getElementById('app4'));
