@@ -1,6 +1,7 @@
 import React from 'react'
 import Profile from './Profile.jsx'
 import AddProfile from './AddProfile.jsx'
+import {getProfiles} from '../utils/profileApi.js'
 
 var Y = React.createClass({
 	render: function(){
@@ -68,12 +69,23 @@ export default class App4 extends React.Component {
 	constructor(props) {
 		super(props)
 			this.state = {
-				profiles: [
-				{name: 'Sunny', age: 30, hobbies: ['swimming','cricket'], bio:"bio1"},
-				{name: 'Dharam', age: 29, hobbies: ['gardening','football'], bio:"bio2"},
-					]
+				profiles: []
 			}
 		this.addUser = this.addUser.bind(this)
+	}
+	
+	componentDidMount() {
+		/* Response of the API should look like this
+		 * [{
+ "name": "name1", "age": "age1", "bio": "bio1", "hobbies": ["h1","h2"]
+},
+{
+ "name": "name1", "age": "age1", "bio": "bio1", "hobbies": ["h1","h2"]
+}
+]
+		 */
+		
+			getProfiles().then(data => {this.setState({profiles: data})})
 	}
 
 	addUser(newProfile) {
@@ -83,6 +95,7 @@ export default class App4 extends React.Component {
 	}
 
 	render() {
+		console.log('app rendered')
 		let profiles = this.state.profiles.map(profile => {
 			return (
 				<Profile
