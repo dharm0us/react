@@ -56,6 +56,14 @@ class App3 extends React.Component {
 		      )
 	}
 }
+
+var MyComponent = props => ( 
+	<div>
+		<p> I am a function component </p>
+		<p> {props.x} </p>
+		</div>
+		)
+
 export default class App4 extends React.Component {
 	constructor(props) {
 		super(props)
@@ -89,6 +97,7 @@ export default class App4 extends React.Component {
 				<div>
 				{profiles}
 				<AddProfile addUser={this.addUser} />
+				<MyComponent x='hello' />
 				</div>
 		      )
 	}
