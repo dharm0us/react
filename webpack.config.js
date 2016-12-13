@@ -19,6 +19,8 @@ var config = {
     inline: true
   , contentBase: BUILD_DIR
   , port: 3333 
+  , historyApiFallback: true
+  
   }
 , module: {
     loaders: [
