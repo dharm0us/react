@@ -2,6 +2,20 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 
+class Nav extends React.Component {
+	constructor(props) {
+		super(props)
+	}
+
+	render() {
+		return(
+				<div>
+				<button onClick={this.props.showHome}> Show Home </button>
+				<button onClick={this.props.showAbout}> Show About </button>
+				</div>
+		      )
+	}
+}
 class Home extends React.Component {
 	constructor(props) {
 		super(props)
@@ -55,8 +69,7 @@ export default class App extends React.Component {
 		return(
 				<div>
 				{this.state.view}
-				<button onClick={this.showHome}> Show Home </button>
-				<button onClick={this.showAbout}> Show About </button>
+				<Nav showHome={this.showHome} showAbout={this.showAbout}/>
 				</div>
 		      )
 	}
