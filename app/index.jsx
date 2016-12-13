@@ -6,9 +6,10 @@ import About from './pages/About.jsx'
 import Home from './pages/Home.jsx'
 
 var routes = <Router history={browserHistory}>
-<Route path='/' component={App} />
+<Route path='/' component={App} >
 <Route path='/home' component={Home} />
 <Route path='/about' component={About} />
+</Route>
 				</Router>
 ReactDOM.render((routes)
 		, document.getElementById('app'));
