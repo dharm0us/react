@@ -1,4 +1,4 @@
-import {Route, Router, browserHistory} from 'react-router'
+import {IndexRoute, Route, Router, browserHistory} from 'react-router'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/AppSPA.jsx'
@@ -7,6 +7,7 @@ import Home from './pages/Home.jsx'
 
 var routes = <Router history={browserHistory}>
 <Route path='/' component={App} >
+<IndexRoute component={Home} />
 <Route path='/home' component={Home} />
 <Route path='/about' component={About} />
 </Route>
