@@ -44,6 +44,7 @@ export default class App extends React.Component {
 	render() {
 		return(
 				<Router history={browserHistory}>
+<Route path='/' component={Home} />
 <Route path='/home' component={Home} />
 <Route path='/about' component={About} />
 				</Router>
